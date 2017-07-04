@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'BYekan';
+    src: url('../fonts/BYekan/yekan-joom.eot') format('eot'),
+         url('../fonts/BYekan/yekan-joom.woff') format('woff'),
+         url('../fonts/BYekan/yekan-joom.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+.font {
+    font-family: 'BYekan' !important;
+}
+.font-size-18{
+    font-size: 1.8em;
+}
+.font-size-16{
+    font-size: 1.6em;
+}
+.font-size-14{
+    font-size: 1.4em;
+}
+.font-size-20{
+    font-size: 2.0em;
+}
+.font-size-22{
+    font-size: 2.2em;
+}
+.font-size-26{
+    font-size: 2.6em;
+}
+.font-size-30{
+    font-size: 3.0em;
+}
+.border-bottom-1 {
+    border-bottom: 1px solid darkgray;
+}
+.paddin-10 {
+    padding: 10px;
+}
+.paddin-0-10 {
+    padding: 0 10px;
+}
+.width-100{
+    width: 100%;
+}
+.paddin-15{
+    padding: 15px;
+}
+.paddin-20 {
+    padding: 20px;
+}
+.box {
+    border-radius: 4px;
+    box-shadow: 0 0 4px grey;
+}

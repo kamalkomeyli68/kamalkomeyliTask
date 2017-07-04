@@ -1,0 +1,75 @@
+{% extends "layout/homePage.html" %}
+{% block body %}
+    <div class="col-md-12 " >
+        <div class="row">
+            <div class="container font" >
+                <div class="col-md-6">
+                    <div class="paddin-20">
+                        <div class="width-100 box" style="height: auto; background: #fff">
+                            <div class="paddin-0-10 width-100">
+                                <p class="border-bottom-1 paddin-10 text-right font font-size-18">
+                                    ورود
+                                </p>
+                            </div>
+                            <div class="text-right paddin-15">
+                                <form>
+                                  <div class="form-group">
+                                    <label for="exampleInputEmail1">نام کاربری</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="نام کاربری">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="exampleInputPassword1">کلمه عبور</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="کلمه عبور">
+                                  </div>
+
+
+                                  <button type="submit" class="btn btn-success">ورود</button>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="paddin-20">
+                        <div class="width-100 box" style="height: auto; background: #fff">
+                            <div class="paddin-0-10 width-100">
+                                <p class="border-bottom-1 paddin-10 text-right font font-size-18">
+ثبت نام
+                                </p>
+                            </div>
+                            <div class="text-right paddin-15">
+                                <form action="{{ url_for('register') }}" method="POST">
+                                    {{ registerForm.csrf_token }}
+                                    <div class="form-group">
+                                    <label for="exampleInputEmail1">نام</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="نام کاربری">
+                                  </div>
+                                    <div class="form-group">
+                                    <label for="exampleInputEmail1">نام خانوادگی</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="نام کاربری">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="exampleInputEmail1">ایمیل(نام کاربری)</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="نام کاربری">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="exampleInputPassword1">کلمه عبور</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="کلمه عبور">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="exampleInputPassword1">تکرار کلمه عبور</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="کلمه عبور">
+                                  </div>
+
+                                  <button type="submit" class="btn btn-success">ثبت نام</button>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
