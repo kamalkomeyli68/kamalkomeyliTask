@@ -1,0 +1,54 @@
+{% extends "layout/homePage.html" %}
+
+{% block body %}
+    <div class="col-md-12 " >
+    {% macro render_error(field) %}
+        {% if field.errors %}
+            {% for error in field.errors %}<span class='error'>{{ error }}</span><BR/>{% endfor %}
+        {% endif %}
+    {% endmacro %}
+        <div class="row">
+
+            <div class="container font" >
+                <div class="col-md-4">
+                    <div class="paddin-20">
+                        <div class="width-100 box" style="height: auto; background: #fff">
+
+                            <div class="text-right paddin-15">
+                                <ul class="nav nav-pills nav-stacked">
+                                  <li role="presentation" class="active"><a href="#">داشبورد</a></li>
+                                  <li role="presentation"><a href="#">پروفایل</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="paddin-20">
+                        <div class="width-100 box" style="height: auto; background: #fff">
+
+                            <div class="paddin-0-10 width-100">
+                                <p class="border-bottom-1 paddin-10 text-right font font-size-18">
+داشبورد کاربری
+                                </p>
+                            </div>
+                            <div class="text-right paddin-15">
+                                    {% with messages = get_flashed_messages() %}
+                              {% if messages %}
+                                <ul class="flashes list-unstyled">
+                                    {% for message in messages %}
+                                      <li class="alert-success">{{ message }}</li>
+                                    {% endfor %}
+                                    </ul>
+                                  {% endif %}
+                                {% endwith %}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,6 +1,12 @@
 {% extends "layout/homePage.html" %}
+
 {% block body %}
     <div class="col-md-12 " >
+    {% macro render_error(field) %}
+        {% if field.errors %}
+            {% for error in field.errors %}<span class='error'>{{ error }}</span><BR/>{% endfor %}
+        {% endif %}
+    {% endmacro %}
         <div class="row">
             <div class="container font" >
                 <div class="col-md-6">
@@ -40,26 +46,27 @@
                             </div>
                             <div class="text-right paddin-15">
                                 <form action="{{ url_for('register') }}" method="POST">
-                                    {{ registerForm.csrf_token }}
+                                    {{ registerForm.csrf_token  }}
+                                    {{ registerForm.hidden_tag() }}
                                     <div class="form-group">
-                                    <label for="exampleInputEmail1">نام</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="نام کاربری">
+                                    <label for="exampleInputEmail1">نام</label> <span class="alert-danger">{{ render_error(registerForm.name) }}</span>
+                                    <input type="text" class="form-control" name="name" placeholder="نام">
                                   </div>
                                     <div class="form-group">
-                                    <label for="exampleInputEmail1">نام خانوادگی</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="نام کاربری">
+                                    <label for="exampleInputEmail1">نام خانوادگی</label><span class="alert-danger">{{ render_error(registerForm.family) }}</span>
+                                    <input type="text" name="family" class="form-control" placeholder="نام خانوادگی">
                                   </div>
                                   <div class="form-group">
-                                    <label for="exampleInputEmail1">ایمیل(نام کاربری)</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="نام کاربری">
+                                    <label for="exampleInputEmail1">ایمیل(نام کاربری)</label><span class="alert-danger">{{ render_error(registerForm.email) }}</span>
+                                    <input type="email" name="email" class="form-control" placeholder="ایمیل">
                                   </div>
                                   <div class="form-group">
-                                    <label for="exampleInputPassword1">کلمه عبور</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="کلمه عبور">
+                                    <label for="exampleInputPassword1">کلمه عبور</label><span class="alert-danger">{{ render_error(registerForm.password) }}</span>
+                                    <input type="password" name="password" class="form-control"  placeholder="کلمه عبور">
                                   </div>
                                   <div class="form-group">
-                                    <label for="exampleInputPassword1">تکرار کلمه عبور</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="کلمه عبور">
+                                    <label for="exampleInputPassword1">تکرار کلمه عبور</label><span class="alert-danger">{{ render_error(registerForm.confirm) }}</span>
+                                    <input type="password" name="confirm" class="form-control" placeholder="تکرار کلمه عبور">
                                   </div>
 
                                   <button type="submit" class="btn btn-success">ثبت نام</button>
