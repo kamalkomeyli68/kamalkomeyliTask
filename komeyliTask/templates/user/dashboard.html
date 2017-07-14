@@ -16,8 +16,8 @@
 
                             <div class="text-right paddin-15">
                                 <ul class="nav nav-pills nav-stacked">
-                                  <li role="presentation" class="active"><a href="#">داشبورد</a></li>
-                                  <li role="presentation"><a href="#">پروفایل</a></li>
+                                  <li role="presentation" class="active"><a href="{{ url_for('dashboard') }}">داشبورد</a></li>
+                                  <li role="presentation"><a href="{{ url_for('profile') }}">پروفایل</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -44,6 +44,7 @@
                                   {% endif %}
                                 {% endwith %}
                             </div>
+
                         </div>
 
                     </div>
