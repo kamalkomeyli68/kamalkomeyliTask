@@ -8,7 +8,7 @@ from flask import Flask
 from flask_debugtoolbar import DebugToolbarExtension
 
 app = Flask('komeyliTask')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///students.sqlite3'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///komeyliTask.users'
 app.config['SECRET_KEY'] = 'random'
 db = SQLAlchemy(app)
 db.init_app(app)

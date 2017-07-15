@@ -3,10 +3,10 @@
 {% block body %}
     <div class="col-md-12 " >
     {% macro render_error(field) %}
-        {% if field.errors %}
-            {% for error in field.errors %}<span class='error'>{{ error }}</span><BR/>{% endfor %}
-        {% endif %}
-    {% endmacro %}
+            {% if field.errors %}
+                {% for error in field.errors %}<span class='error'>{{ error }}</span><BR/>{% endfor %}
+            {% endif %}
+        {% endmacro %}
         <div class="row">
 
             <div class="container font" >

@@ -2,13 +2,25 @@
 
 {% block body %}
     <div class="col-md-12 " >
-    {% macro render_error(field) %}
+{% macro render_error(field) %}
         {% if field.errors %}
             {% for error in field.errors %}<span class='error'>{{ error }}</span><BR/>{% endfor %}
         {% endif %}
     {% endmacro %}
+
         <div class="row">
             <div class="container font" >
+                <div class="text-right paddin-15">
+                    {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <ul class="flashes list-unstyled">
+                    {% for message in messages %}
+                      <li class="alert-danger">{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                  {% endif %}
+                {% endwith %}
+                            </div>
                 <div class="col-md-6">
                     <div class="paddin-20">
                         <div class="width-100 box" style="height: auto; background: #fff">
@@ -18,14 +30,16 @@
                                 </p>
                             </div>
                             <div class="text-right paddin-15">
-                                <form>
+                                <form action="{{ url_for("login") }}" method="POST">
+                                    {{ loginForm.csrf_token  }}
+                                    {{ loginForm.hidden_tag() }}
                                   <div class="form-group">
-                                    <label for="exampleInputEmail1">نام کاربری</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="نام کاربری">
+                                    <label >نام کاربری</label> <span class="alert-danger">{{ render_error(loginForm.email) }}</span>
+                                    <input type="email" name="email" class="form-control" placeholder="نام کاربری">
                                   </div>
                                   <div class="form-group">
-                                    <label for="exampleInputPassword1">کلمه عبور</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="کلمه عبور">
+                                    <label >کلمه عبور</label><span class="alert-danger">{{ render_error(loginForm.password) }}</span>
+                                    <input type="password" name="password" class="form-control"  placeholder="کلمه عبور">
                                   </div>
 
 
